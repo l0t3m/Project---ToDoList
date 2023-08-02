@@ -7,21 +7,21 @@
     <body>
         
 
-        <!-------------------- Nav Bar: -------------------->
+        <!-- Nav Bar: -->
         <nav>
             <div class="nav-container">
 
-                <!--------- All Tasks --------->
+                <!-- All Tasks Tab -->
                 <div class="tasks">
                     <a href="/">All Tasks</a>
                 </div>
 
-                <!--------- Add Tasks --------->
+                <!--- Add Tasks Tab -->
                 <div class="addtask">
                     <a href="/add">Add Task</a>
                 </div>
 
-                <!--------- Search --------->
+                <!--- Search Tab -->
                 <div class="search">
                     <input type="text" placeholder="Search...">
                 </div>
@@ -30,10 +30,36 @@
 
 
 
-        <!-------------------- All Tasks: -------------------->
+        <!-- All Tasks: -->
         <section>
             <div class="tasks-container">
-                <!-- pass -->
+
+                <div class="task-bigheader">
+                    <div class="bigheader">All Tasks:</div>
+                </div>
+
+                <div class="task-headers">
+                    <div class="category-header">Category</div>
+                    <div class="description-header">Description</div>
+                    <div class="date-header">Date</div>
+                </div>
+
+                {% for task in tasks %}
+                <div class="task">
+                    <div class="category">{{task["category"]}}</div>
+                    <div class="description">{{task["description"]}}</div>
+                    <div class="date">{{task["date"]}}</div>
+                    
+                    <div class="task-delete">
+                        <a href="/delete?id={{task['id']}}">Delete</a>
+                    </div>
+                    
+                    <div class="task-update">
+                        <a href="">Update</a>
+                    </div>
+                </div>
+                {% endfor %}
+
             </div>
         </section>
 

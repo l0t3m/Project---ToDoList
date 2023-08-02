@@ -1,12 +1,19 @@
+########## Imports: ##########
+
 from faker import Faker
 import random
 import datetime
 import db
 
-fake = Faker()
 
+
+########## Global Variables: ##########
+fake = Faker()
 fake_categories = ["Home", "Car", "Dog"]
 
+
+
+########## Test Functions: ##########
 
 def create_fake_tasks(num):
     for i in range(num):
@@ -18,7 +25,7 @@ def create_fake_tasks(num):
         db.query_db(sql=sql)
 
 
-# create_fake_tasks(10)
+# create_fake_tasks(20)
 
 
 

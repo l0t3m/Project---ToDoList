@@ -5,13 +5,16 @@ body {
     font-size: 24pt;
 }
 
+a {
+    text-decoration: none;
+}
 
 
 /************************* Nav bar: *************************/
 
 .nav-container {
     display: flex;
-    background-color: rgb(206, 206, 206);
+    background-color: rgb(75, 75, 75);
     
     border: 0.5px solid black;
     border-radius: 5px;
@@ -25,23 +28,60 @@ body {
     font-weight: 500;
 }
 
-.tasks a, .addtask a {
-    text-decoration: none;
-    color: black;
+.nav-container a {
+    color: white;
 }
 
 .search input {
     position: relative;
     top: -5px;
 
-    border: 0.51px solid black;
     border-radius: 5px;
-
     padding: 10px;
 }
 
-.search input:focus {
-    background-color: azure;
+
+
+/************************* All Tasks: *************************/
+
+.bigheader {
+    font-weight: 400;
+    font-size: 36pt;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.task, .task-headers {
+    display: flex;
+}
+
+.task-headers {
+    margin-top: 10px;
+    background-color: rgb(185, 185, 185);
+    border-radius: 5px;
+
+    padding: 6px;
+}
+
+.task div, .task-headers div {
+    width: 20%;
+    font-size: 18pt;
+}
+
+.task {
+    border-bottom: 0.1px solid black;
+    
+    padding-bottom: 10px;
+    margin: 10px;
+}
+
+.task a {
+    color: black;
+}
+
+.task-headers div {
+    font-weight: 500;
 }
 
 

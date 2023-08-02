@@ -1,4 +1,10 @@
+########## Imports: ##########
+
 import sqlite3
+
+
+
+########## DB Functions: ##########
 
 def setup(filename="tasks.sqlite"):
     '''Creating the DB if not exists.'''
@@ -32,11 +38,9 @@ def get_dicts(sql="SELECT * FROM tasks"):
         tasks_dict.append(tempd)
     return tasks_dict
 
-print(get_dicts())
 
 
-
-### Temp Functions: ###
+########## Temp Functions: ##########
 
 def get_keys(sql="SELECT * FROM tasks", filename="tasks.sqlite"):
     '''Returns keys of the DB given.'''
@@ -57,8 +61,5 @@ def get_keys(sql="SELECT * FROM tasks", filename="tasks.sqlite"):
 # Temp:
 
 # setup()
-
-
-
 
 
