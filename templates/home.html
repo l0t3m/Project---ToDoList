@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <title>Home - All Tasks</title>
-        <link rel="stylesheet" href="static/style.css">
+        <link rel="stylesheet" href="static/homestyle.css">
     </head>
     <body>
         
@@ -18,7 +18,7 @@
 
                 <!--- Add Tasks Tab -->
                 <div class="addtask">
-                    <a href="/add">Add Task</a>
+                    <a href="/add">Add a Task</a>
                 </div>
 
                 <!--- Search Tab -->
@@ -51,7 +51,7 @@
                     <div class="date">{{task["date"]}}</div>
                     
                     <div class="task-delete">
-                        <a href="/delete?id={{task['id']}}">Delete</a>
+                        <a href="/delete?task_id={{task['task_id']}}">Delete</a>
                     </div>
                     
                     <div class="task-update">

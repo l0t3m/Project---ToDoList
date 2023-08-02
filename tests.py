@@ -9,7 +9,6 @@ import db
 
 ########## Global Variables: ##########
 fake = Faker()
-fake_categories = ["Home", "Car", "Dog"]
 
 
 
@@ -17,17 +16,22 @@ fake_categories = ["Home", "Car", "Dog"]
 
 def create_fake_tasks(num):
     for i in range(num):
-        category = random.choice(fake_categories)
+        category = random_category()
         description = "fake_description"
         date = fake.future_date()
-    
-        sql = f"INSERT INTO tasks (category, description, date) VALUES ('{category}', '{description}', '{date}')"
-        db.query_db(sql=sql)
-
-
-# create_fake_tasks(20)
+        
+        db.query_db(sql=f"INSERT INTO tasks (category, description, date) VALUES ('{category}', '{description}', '{date}')")
 
 
 
+########## Additional Functions: ##########
+
+def random_category():
+    category = db.query_db(sql="SELECT * FROM categories", filename="tasks.sqlite")
+    return random.choice(category["rows"])[1]
 
 
+
+########## temp: ##########
+# db.setup()
+# create_fake_tasks(10)

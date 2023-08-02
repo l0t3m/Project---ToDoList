@@ -8,12 +8,11 @@ def home():
 
 @app.route('/add')
 def add():
-    return render_template('add.html')
+    return render_template('add.html', categories = get_categories())
 
 @app.route('/delete')
 def delete():
-    id = request.args['id']
-    delete_task(id)
+    delete_task(request.args['task_id'])
     return redirect(url_for("home"))
 
 

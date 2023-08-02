@@ -1,6 +1,7 @@
 ########## Imports: ##########
 
 import sqlite3
+import os
 
 
 
@@ -8,10 +9,15 @@ import sqlite3
 
 def setup(filename="tasks.sqlite"):
     '''Creating the DB if not exists.'''
-    with sqlite3.connect(filename) as conn:
-        cur = conn.cursor()
-        cur.execute("CREATE TABLE IF NOT EXISTS tasks(id INTEGER PRIMARY KEY, category TEXT, description TEXT, date TEXT)")
-        conn.commit()
+    if os.path.exists('tasks.sqlite') == False:
+        with sqlite3.connect(filename) as conn:
+            cur = conn.cursor()
+            cur.execute("CREATE TABLE IF NOT EXISTS tasks(task_id INTEGER PRIMARY KEY, category TEXT, description TEXT, date TEXT)")
+            cur.execute("CREATE TABLE IF NOT EXISTS categories(category_id INTEGER PRIMARY KEY, category_name TEXT)")
+            conn.commit()
+            cur.execute("INSERT INTO categories (category_name) VALUES ('Personal Care'),('Health'),('Work'),('Chores');")
+            conn.commit()
+        
 
 def query_db(sql="SELECT * FROM tasks", filename="tasks.sqlite"):
     '''Returns a dict containing all the rows and keys of the sql.'''
@@ -52,14 +58,3 @@ def get_keys(sql="SELECT * FROM tasks", filename="tasks.sqlite"):
         for row in cur.description:
             row_names.append(row[0])
         return row_names
-    
-
-
-
-
-
-# Temp:
-
-# setup()
-
-

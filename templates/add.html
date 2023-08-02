@@ -2,11 +2,65 @@
 <html lang="en">
     <head>
         <title>Home - Add Task</title>
-        <link rel="stylesheet" href="static/style.css">
+        <link rel="stylesheet" href="static/addstyle.css">
     </head>
     <body>
         
-        <a href="/">All Tasks</a>
+        <!-- Nav Bar: -->
+        <nav>
+            <div class="nav-container">
+
+                <!-- All Tasks Tab -->
+                <div class="tasks">
+                    <a href="/">All Tasks</a>
+                </div>
+
+                <!--- Add Tasks Tab -->
+                <div class="addtask">
+                    <a href="/add">Add Task</a>
+                </div>
+
+                <!--- Search Tab -->
+                <div class="search">
+                    <input type="text" placeholder="Search...">
+                </div>
+            </div>
+        </nav>
+
+
+
+        <!-- Add Section: -->
+        <section>
+            <div class="add-container">
+
+                <div class="add-bigheader">
+                    <div class="bigheader">Add a Task:</div>
+                </div>
+
+                <div class="add">
+                    <form action="/add" method="get">
+                        <!-- Category -->
+                        <label for="category">Choose a category:</label>
+                        <select name="categories" id="categories">
+                            {% for category in categories %}
+                            <option value="{{category['category_name']}}">{{category['category_name']}}</option>
+                            {% endfor %}
+                        </select> <br>
+
+                        <!-- Description -->
+                        <label for="description">Enter description:</label>
+                        <input type="text" name="description" placeholder="Description" class="description"> <br>
+
+                        <!-- Date -->
+                        <label for="date">Choose date:</label>
+                        <input type="date" name="date" class="date"> <br>
+
+                        <input type="submit" value="Add Task" class="submit">
+                    </form>
+                </div>
+
+            </div>
+        </section>
         
     </body>
 </html>
