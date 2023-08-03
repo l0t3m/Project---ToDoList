@@ -14,10 +14,18 @@ def setup(filename="tasks.sqlite"):
             cur = conn.cursor()
             cur.execute("CREATE TABLE IF NOT EXISTS tasks(task_id INTEGER PRIMARY KEY, category TEXT, description TEXT, date TEXT)")
             cur.execute("CREATE TABLE IF NOT EXISTS categories(category_id INTEGER PRIMARY KEY, category_name TEXT)")
+            cur.execute("CREATE TABLE IF NOT EXISTS tabs(tab_id INTEGER PRIMARY KEY, tab_name TEXT, tab_url TEXT)")
             conn.commit()
-            cur.execute("INSERT INTO categories (category_name) VALUES ('Personal Care'),('Health'),('Work'),('Chores');")
-            conn.commit()
-        
+
+            setup_basic_info()
+
+def setup_basic_info(filename="tasks.sqlite"):
+    '''Creating basic data for the db.'''
+    with sqlite3.connect(filename) as conn:
+        cur = conn.cursor()
+        cur.execute("INSERT INTO categories (category_name) VALUES ('Personal Care'),('Health'),('Work'),('Chores');")
+        cur.execute("INSERT INTO tabs (tab_name, tab_url) VALUES ('All Tasks', '/'),('Add a Task','/add-task'),('AllCategories','/categories'),('Add a Category','/add-category');")
+        conn.commit()
 
 def query_db(sql="SELECT * FROM tasks", filename="tasks.sqlite"):
     '''Returns a dict containing all the rows and keys of the sql.'''

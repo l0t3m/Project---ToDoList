@@ -12,12 +12,7 @@ def get_categories():
 
 def get_tabs():
     '''Returns all the tabs and url for them as multiple dicts in a list.'''
-    tabs = {
-        "All Tasks":"/",
-        "Add a Task":"/add-task",
-        "All Categories":"/categories",
-        "Add a Category":"/add-category",
-    }
+    tabs = db.get_dicts("SELECT * FROM tabs")
     return list(tabs)
 
 
@@ -30,5 +25,10 @@ def add_task(category, description, date):
     db.query_db(sql=f"INSERT INTO tasks (category, description, date) VALUES ('{category}', '{description}', '{date}')")
 
 
+def add_new_category(category_name):
+    db.query_db(sql=f"INSERT INTO categories(category_name) VALUES ('{category_name}')")
+
+def delete_existing_category(category_id):
+    db.query_db(sql=f"DELETE FROM categories WHERE category_id='{category_id}';")
 
 

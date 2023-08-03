@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>ToDoList - All Categories</title>
+        <link rel="stylesheet" href="static/css/categories-style.css">
+    </head>
+    <body>
+
+        <!-- Nav Bar: -->
+
+        <nav>
+            <div class="nav-container">
+                <div class="project-name">
+                    <div class="actual-name">ToDoList Project</div>
+                    <div class="my-name">Lotem</div>
+                </div>
+
+                {% for tab in tabs %}
+                    <div class="seperator"></div>
+                    <div class="tab">
+                        <a href="{{tab['tab_url']}}">{{tab["tab_name"]}}</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </nav>
+
+        <div class="categories-container">
+            <div class="bigheader-container margin">
+                <div class="bigheader">Add a Category:</div>
+            </div>
+
+            <div class="add margin">
+                <form action="/add-category-db" method="get">
+                    <label for="category-name">Enter the category's name:</label>
+                    <input type="text" name="category-name" placeholder="Name" class="category-name">
+
+                    <input type="submit" value="Add Category" class="submit">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

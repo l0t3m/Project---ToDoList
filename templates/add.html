@@ -7,47 +7,26 @@
     <body>
         
         <!-- Nav Bar: -->
+
         <nav>
             <div class="nav-container">
-                <!-- Project Name -->
                 <div class="project-name">
                     <div class="actual-name">ToDoList Project</div>
                     <div class="my-name">Lotem</div>
                 </div>
 
+                {% for tab in tabs %}
                 <div class="seperator"></div>
-
-                <!-- All Tasks Tab -->
-                <div class="tasks tab">
-                    <a href="/">All Tasks</a>
+                <div class="tab">
+                    <a href="{{tab['tab_url']}}">{{tab["tab_name"]}}</a>
                 </div>
+                {% endfor %}
 
-                <div class="seperator"></div>
-
-                <!-- Add a Tasks Tab -->
-                <div class="addtask tab">
-                    <a href="/add-task">Add a Task</a>
-                </div>
-
-                <div class="seperator"></div>
-
-                <!-- All Categories Tab -->
-                <div class="allcategories tab">
-                    <a href="/categories">All Categories</a>
-                </div>
-
-                <div class="seperator"></div>
-
-                <!-- Add Category Tab -->
-                <div class="addcategory tab">
-                    <a href="/add-category">Add a Category</a>
-                </div>
             </div>
         </nav>
 
-
-
         <!-- Add Section: -->
+
         <section>
             <div class="add-container">
 
@@ -76,9 +55,7 @@
                         <input type="submit" value="Add Task" class="submit">
                     </form>
                 </div>
-
             </div>
         </section>
-        
     </body>
 </html>
