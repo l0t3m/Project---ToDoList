@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Home - All Tasks</title>
-        <link rel="stylesheet" href="static/homestyle.css">
+        <title>ToDoList - All a Tasks</title>
+        <link rel="stylesheet" href="static/css/style.css">
     </head>
     <body>
         
@@ -10,20 +10,38 @@
         <!-- Nav Bar: -->
         <nav>
             <div class="nav-container">
+                <!-- Project Name -->
+                <div class="project-name">
+                    <div class="actual-name">ToDoList Project</div>
+                    <div class="my-name">Lotem</div>
+                </div>
+
+                <div class="seperator"></div>
 
                 <!-- All Tasks Tab -->
-                <div class="tasks">
+                <div class="tasks tab">
                     <a href="/">All Tasks</a>
                 </div>
 
-                <!--- Add Tasks Tab -->
-                <div class="addtask">
-                    <a href="/add">Add a Task</a>
+                <div class="seperator"></div>
+
+                <!-- Add a Tasks Tab -->
+                <div class="addtask tab">
+                    <a href="/add-task">Add a Task</a>
                 </div>
 
-                <!--- Search Tab -->
-                <div class="search">
-                    <input type="text" placeholder="Search...">
+                <div class="seperator"></div>
+
+                <!-- All Categories Tab -->
+                <div class="allcategories tab">
+                    <a href="/categories">All Categories</a>
+                </div>
+
+                <div class="seperator"></div>
+
+                <!-- Add Category Tab -->
+                <div class="addcategory tab">
+                    <a href="/add-category">Add a Category</a>
                 </div>
             </div>
         </nav>
@@ -32,13 +50,19 @@
 
         <!-- All Tasks: -->
         <section>
-            <div class="tasks-container">
+            <div class="tasks-container margin">
 
-                <div class="task-bigheader">
+                <div class="bigheader-container">
                     <div class="bigheader">All Tasks:</div>
+                    <div class="search">
+                        <form action="" method="get">
+                            <input class="search-text" type="text" placeholder="Search task..." class="search-img">
+                            <input class="search-img" type="image" src="static/images/search-icon.png" onclick="SubmitEvent()">
+                        </form>
+                    </div>
                 </div>
 
-                <div class="task-headers">
+                <div class="headers-container">
                     <div class="category-header">Category</div>
                     <div class="description-header">Description</div>
                     <div class="date-header">Date</div>
@@ -49,15 +73,21 @@
                     <div class="category">{{task["category"]}}</div>
                     <div class="description">{{task["description"]}}</div>
                     <div class="date">{{task["date"]}}</div>
-                    
-                    <div class="task-delete">
-                        <a href="/delete?task_id={{task['task_id']}}">Delete</a>
+
+                    <div class="task-done button">
+                        <a href="/delete?task_id={{task['task_id']}}">
+                            <input type="button" value="Done">
+                        </a>
                     </div>
                     
-                    <div class="task-update">
-                        <a href="">Update</a>
+                    <div class="task-update button">
+                        <a href="/update?task_id={{task['task_id']}}">
+                            <input type="button" value="Update">
+                        </a>
                     </div>
                 </div>
+
+                <div class="seperator"></div>
                 {% endfor %}
 
             </div>

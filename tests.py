@@ -8,6 +8,7 @@ import db
 
 
 ########## Global Variables: ##########
+
 fake = Faker()
 
 
