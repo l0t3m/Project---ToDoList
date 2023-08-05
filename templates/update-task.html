@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>ToDoList - Update Task</title>
+        <link rel="icon" href="static/images/web-icon.png" type="image/x-icon">
+        <link rel="stylesheet" href="static/css/tabs-style.css">
+        <link rel="stylesheet" href="static/css/update-task-style.css">
+    </head>
+    <body>
+        
+        <!-- Nav Bar: -->
+        <nav>
+            <div class="nav-container">
+                <div class="project-name">
+                    <div class="actual-name">ToDoList Project</div>
+                    <div class="my-name">Lotem</div>
+                </div>
+
+                {% for tab in tabs %}
+                    <div class="seperator"></div>
+                    <div class="tab">
+                        <a href="{{tab['tab_url']}}">{{tab["tab_name"]}}</a>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </nav>
+
+        <!-- Update Task: -->
+        <section>
+            <div class="update-container">
+
+                <div class="bigheader-container margin">
+                    <!-- Header: -->
+                    <div class="bigheader">
+                        Update Task:
+                    </div>
+                </div>
+
+                <div class="cards-container">
+                    <!-- Previous Data: -->
+                    <div class="card margin">
+                        <div class="previous-task-data">
+
+                            <!-- Category -->
+                            <div class="previous-title">Previous category:</div>
+                            <input class="previous-data" type="text" value="{{task.0['category']}}" disabled> <br>
+    
+                            <!-- Description -->
+                            <div class="previous-title">Previous description:</div>
+                            <input class="previous-data" type="text" value="{{task.0['description']}}" disabled> <br>
+    
+                            <!-- Date -->
+                            <div class="previous-title">Previous date:</div>
+                            <input class="previous-data" type="text" value="{{task.0['date']}}" disabled> <br>
+                        </div>
+                    </div>
+
+                    <!-- New Data: -->
+                    <div class="card margin">
+                        <div class="new-task-data">
+                            <form action="/update-task-to-db" method="get">
+                                
+                                <!-- Category -->
+                                <label for="category">Choose a category:</label> <br>
+                                <select name="categories">
+                                    {% for category in categories %}
+                                    <option value="{{category['category_name']}}">{{category['category_name']}}</option>
+                                    {% endfor %}
+                                </select> <br>
+        
+                                <!-- Description -->
+                                <label for="description">Enter description:</label> <br>
+                                <input class="new-description" type="text" name="description" placeholder="Description"> <br>
+
+                                <!-- Date -->
+                                <label for="date">Choose date:</label> <br>
+                                <input class="new-date" type="date" name="date"> <br>
+
+                                <input type="submit" value="Update Task" class="submit">
+
+                                <!-- Task ID -->
+                                <label class="hidden" for="task_id">Task ID:</label> <br>
+                                <input class="hidden" type="text" name="task_id" value="{{task.0['task_id']}}"> <br>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

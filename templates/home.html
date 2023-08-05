@@ -2,12 +2,13 @@
 <html lang="en">
     <head>
         <title>ToDoList - All Tasks</title>
+        <link rel="icon" href="static/images/web-icon.png" type="image/x-icon">
+        <link rel="stylesheet" href="static/css/tabs-style.css">
         <link rel="stylesheet" href="static/css/style.css">
     </head>
     <body>
 
         <!-- Nav Bar: -->
-
         <nav>
             <div class="nav-container">
                 <div class="project-name">
@@ -21,27 +22,29 @@
                         <a href="{{tab['tab_url']}}">{{tab["tab_name"]}}</a>
                     </div>
                 {% endfor %}
-
             </div>
         </nav>
 
         <!-- All Tasks: -->
-
         <section>
             <div class="tasks-container margin">
 
                 <div class="bigheader-container">
-                    <div class="bigheader">All Tasks:</div>
+                    <!-- Header: -->
+                    <div class="bigheader">
+                        All Tasks:
+                    </div>
+
+                    <!-- Search: -->
                     <div class="search">
-                        <form action="" method="get">
-                            <input class="search-text" type="text" placeholder="Search task..." class="search-img">
+                        <form action="/search-task" method="get">
+                            <input class="search-text" name="search-value" type="text" placeholder="Search task...">
                             <input class="search-img" type="image" src="static/images/search-icon.png" onclick="SubmitEvent()">
                         </form>
                     </div>
                 </div>
 
                 <!-- All tasks - headers: -->
-
                 <div class="headers-container">
                     <div class="category-header">Category</div>
                     <div class="description-header">Description</div>
@@ -49,7 +52,6 @@
                 </div>
 
                 <!-- All tasks - Items: -->
-
                 {% for task in tasks %}
                 <div class="task">
                     <div class="category">{{task["category"]}}</div>
@@ -57,13 +59,13 @@
                     <div class="date">{{task["date"]}}</div>
 
                     <div class="task-done button">
-                        <a href="/delete?task_id={{task['task_id']}}">
+                        <a href="/delete-task?task_id={{task['task_id']}}">
                             <input type="button" value="Done">
                         </a>
                     </div>
                     
                     <div class="task-update button">
-                        <a href="/update?task_id={{task['task_id']}}">
+                        <a href="/update-task?task_id={{task['task_id']}}">
                             <input type="button" value="Update">
                         </a>
                     </div>

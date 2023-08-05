@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>ToDoList - All Categories</title>
+        <title>ToDoList - Add Category</title>
+        <link rel="icon" href="static/images/web-icon.png" type="image/x-icon">
+        <link rel="stylesheet" href="static/css/tabs-style.css">
         <link rel="stylesheet" href="static/css/categories-style.css">
     </head>
     <body>
 
         <!-- Nav Bar: -->
-
         <nav>
             <div class="nav-container">
                 <div class="project-name">
@@ -24,13 +25,18 @@
             </div>
         </nav>
 
+        <!-- Add Section: -->
         <div class="categories-container">
             <div class="bigheader-container margin">
-                <div class="bigheader">Add a Category:</div>
+                <!-- Header: -->
+                <div class="bigheader">
+                    Add a Category:
+                </div>
             </div>
 
             <div class="add margin">
                 <form action="/add-category-db" method="get">
+                    <!-- New Category Name: -->
                     <label for="category-name">Enter the category's name:</label>
                     <input type="text" name="category-name" placeholder="Name" class="category-name">
 

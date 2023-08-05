@@ -2,12 +2,13 @@
 <html lang="en">
     <head>
         <title>ToDoList - All Categories</title>
+        <link rel="icon" href="static/images/web-icon.png" type="image/x-icon">
+        <link rel="stylesheet" href="static/css/tabs-style.css">
         <link rel="stylesheet" href="static/css/categories-style.css">
     </head>
     <body>
 
         <!-- Nav Bar: -->
-        
         <nav>
             <div class="nav-container">
                 <div class="project-name">
@@ -21,32 +22,32 @@
                         <a href="{{tab['tab_url']}}">{{tab["tab_name"]}}</a>
                     </div>
                 {% endfor %}
-
             </div>
         </nav>
 
         <!-- All Categories: -->
-
         <div class="categories-container margin">
-
             <div class="bigheader-container">
-                <div class="bigheader">All Categories:</div>
+                <!-- Header: -->
+                <div class="bigheader">
+                    All Categories:
+                </div>
+
+                <!-- Search: -->
                 <div class="search">
-                    <form action="" method="get">
-                        <input class="search-text" type="text" placeholder="Search category..." class="search-img">
+                    <form action="/search-category" method="get">
+                        <input class="search-text" name="search-value" type="text" placeholder="Search category...">
                         <input class="search-img" type="image" src="static/images/search-icon.png" onclick="SubmitEvent()">
                     </form>
                 </div>
             </div>
 
             <!-- All Categories - headers: -->
-
             <div class="headers-container">
                 <div class="category-header">Category Name</div>
             </div>
 
             <!-- All Categories - Items: -->
-
             {% for category in categories %}
             <div class="category-list">
                 <div class="category_name">{{category['category_name']}}</div>
@@ -61,16 +62,12 @@
                 </div>
                 
                 <div class="category-update button">
-                    <a href="">
+                    <a href="update-category?category_id={{category['category_id']}}">
                         <input type="button" value="Update">
                     </a>
                 </div>
-                
             </div>
             {% endfor %}
         </div>
-
-
-        
     </body>
 </html>

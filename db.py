@@ -42,6 +42,7 @@ def query_db(sql="SELECT * FROM tasks", filename="tasks.sqlite"):
         return {"rows":cur.fetchall(), "keys":row_names}
 
 def get_dicts(sql="SELECT * FROM tasks"):
+    '''Gets a sql and returns a dict containing the title(key) and row(value).'''
     tasks = query_db(sql)["rows"]
     keys = query_db(sql)["keys"]
     
@@ -51,10 +52,6 @@ def get_dicts(sql="SELECT * FROM tasks"):
         tempd = dict(zip(keys, values))
         tasks_dict.append(tempd)
     return tasks_dict
-
-
-
-########## Temp Functions: ##########
 
 def get_keys(sql="SELECT * FROM tasks", filename="tasks.sqlite"):
     '''Returns keys of the DB given.'''

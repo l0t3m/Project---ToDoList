@@ -2,12 +2,13 @@
 <html lang="en">
     <head>
         <title>ToDoList - Add Task</title>
+        <link rel="icon" href="static/images/web-icon.png" type="image/x-icon">
+        <link rel="stylesheet" href="static/css/tabs-style.css">
         <link rel="stylesheet" href="static/css/style.css">
     </head>
     <body>
         
         <!-- Nav Bar: -->
-
         <nav>
             <div class="nav-container">
                 <div class="project-name">
@@ -21,34 +22,35 @@
                     <a href="{{tab['tab_url']}}">{{tab["tab_name"]}}</a>
                 </div>
                 {% endfor %}
-
             </div>
         </nav>
 
         <!-- Add Section: -->
-
         <section>
             <div class="add-container">
 
                 <div class="bigheader-container margin">
-                    <div class="bigheader">Add a Task:</div>
+                    <!-- Header: -->
+                    <div class="bigheader">
+                        Add a Task:
+                    </div>
                 </div>
 
                 <div class="add margin">
                     <form action="/add-task-db" method="get">
-                        <!-- Category -->
+                        <!-- Category: -->
                         <label for="category">Choose a category:</label>
-                        <select name="categories" id="categories">
+                        <select class="add-select" name="categories" id="categories">
                             {% for category in categories %}
                             <option value="{{category['category_name']}}">{{category['category_name']}}</option>
                             {% endfor %}
                         </select> <br>
 
-                        <!-- Description -->
+                        <!-- Description: -->
                         <label for="description">Enter description:</label>
                         <input type="text" name="description" placeholder="Description" class="description"> <br>
 
-                        <!-- Date -->
+                        <!-- Date: -->
                         <label for="date">Choose date:</label>
                         <input type="date" name="date" class="date"> <br>
 

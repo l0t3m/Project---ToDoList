@@ -1,0 +1,67 @@
+.card {
+    font-size: 18pt;
+
+    border: 2px solid black;
+    border-radius: 10px;
+
+    padding: 10px;
+    width: 30%;
+}
+
+.cards-container {
+    display: flex;
+}
+
+/* Previous Card: */
+
+.previous-title, .previous-data {
+    margin: 10px;
+    font-weight: 500;
+}
+
+.previous-task-data input {
+    border: 0.5px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    width: 90%;
+}
+
+/* New Card: */
+
+.new-task-data {
+    padding-top: 10px;
+}
+
+.new-task-data input, .new-task-data select {
+    border: 0.5px solid black;
+    border-radius: 10px;
+    padding: 12px;
+    margin: 5px;
+}
+
+.new-task-data select, .new-task-data option {
+    width: 50%;
+}
+
+.new-task-data input, .new-task-data label {
+    padding-bottom: 10px;
+    margin: 10px;
+    width: 90%;
+    font-weight: 500;
+}
+
+.new-task-data input[type=submit] {
+    width: 30%;
+    margin-left: 35%;
+    background-color: rgb(240, 240, 240);
+}
+
+.new-task-data input[type=submit]:hover {
+    background-color: rgb(230, 230, 230);
+    transition: 0.2s;
+}
+
+.hidden {
+    display: none;
+}
