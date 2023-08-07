@@ -28,7 +28,7 @@ def add_task(category, description, date):
 
 def search_task(query):
     '''Gets a query and looks for anything like that in the db, returns a list containing dicts with results.'''
-    return db.get_dicts(f"SELECT * FROM tasks WHERE category LIKE '{query}%' or description like '{query}%' or date like '{query}%';", "tasks.sqlite")
+    return db.get_dicts(f"SELECT * FROM tasks WHERE category LIKE '%{query}%' or description like '%{query}%' or date like '%{query}%';", "tasks.sqlite")
 
 def update_task(task_id, new_category, new_description, new_date):
     '''Gets the task id, removes it and adding the new info to the db.'''
@@ -51,7 +51,7 @@ def add_new_category(category_name):
 
 def search_category(category_name):
     '''Gets a category name and looks for anything like that in the db, returns a list containing dicts with results.'''
-    return db.get_dicts(f"SELECT * FROM categories WHERE category_name LIKE '{category_name}%'", "tasks.sqlite")
+    return db.get_dicts(f"SELECT * FROM categories WHERE category_name LIKE '%{category_name}%'", "tasks.sqlite")
 
 def update_category(category_id, category_name):
     '''Gets the category id, removes it and adding the new info to the db.'''

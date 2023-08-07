@@ -26,9 +26,6 @@ def add_to_db():
     description = request.args["description"]
     date = request.args["date"]
 
-    if len(description) == 0 or len(date) == 0:
-        return redirect(url_for("add"))
-
     functions.add_task(category, description, date)
     return redirect(url_for("home"))
 
@@ -72,9 +69,6 @@ def add_category():
 @app.route('/add-category-db')
 def add_category_to_db():
     category = request.args["category-name"]
-
-    if len(category) == 0:
-        return redirect(url_for("add_category"))
 
     functions.add_new_category(category)
     return redirect(url_for("all_categories"))
