@@ -4,7 +4,7 @@
         <title>ToDoList - All Tasks</title>
         <link rel="icon" href="static/images/web-icon.png" type="image/x-icon">
         <link rel="stylesheet" href="static/css/tabs-style.css">
-        <link rel="stylesheet" href="static/css/style.css">
+        <link rel="stylesheet" href="static/css/tasks-style.css">
     </head>
     <body>
 
@@ -19,7 +19,7 @@
                 {% for tab in tabs %}
                     <div class="seperator"></div>
                     <div class="tab">
-                        <a href="{{tab['tab_url']}}">{{tab["tab_name"]}}</a>
+                        <a href="{{tab['tab_url']}}" class="{{tab['tab_name']}}" >{{tab["tab_name"]}}</a>
                     </div>
                 {% endfor %}
             </div>
@@ -32,7 +32,7 @@
                 <div class="bigheader-container">
                     <!-- Header: -->
                     <div class="bigheader">
-                        All Tasks:
+                        《 All Tasks: 》
                     </div>
 
                     <!-- Search: -->

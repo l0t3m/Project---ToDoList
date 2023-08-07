@@ -20,8 +20,9 @@
 }
 
 .headers-container {
+    background-color: white;
     display: flex;
-    border: 0.1px solid black;
+    border: 2.5px solid lightskyblue;
     border-radius: 5px;
     margin-top: 10px;
     padding: 10px;
@@ -46,6 +47,7 @@
 .category-list:hover {
     border-radius: 10px;
     background-color: rgb(240, 240, 240);
+    transition: 0.25s;
 }
 
 .category-delete input, .category-update input, .submit {
@@ -78,7 +80,7 @@
 
 .add {
     font-size: 18pt;
-    border: 2px solid black;
+    border: 5px solid lightskyblue;
     border-radius: 10px;
     padding: 10px;
     width: 30%;

@@ -1,9 +1,9 @@
 from flask import Flask, request, redirect, url_for, render_template
 app = Flask(__name__)
 import functions
-from db import setup
+import db
 
-setup()
+db.setup("tasks.sqlite")
 
 ### Tasks Routes: ###
 
@@ -90,5 +90,3 @@ def update_category_to_db():
 
     functions.update_category(category_id, category_name)
     return redirect(url_for("all_categories"))
-
-#########################################################################################
