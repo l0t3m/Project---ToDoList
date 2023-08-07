@@ -48,11 +48,11 @@
 
                         <!-- Description: -->
                         <label for="description">Enter description:</label>
-                        <input type="text" name="description" placeholder="Description" class="description"> <br>
+                        <input type="text" name="description" placeholder="Description" class="description" minlength="3" maxlength="30" required="required"> <br>
 
                         <!-- Date: -->
                         <label for="date">Choose date:</label>
-                        <input type="date" name="date" class="date"> <br>
+                        <input type="date" name="date" class="date" min="2000-01-01" required="required" max="2030-12-31"> <br>
 
                         <input type="submit" value="Add Task" class="submit">
                     </form>

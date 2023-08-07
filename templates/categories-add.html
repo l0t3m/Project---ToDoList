@@ -38,7 +38,7 @@
                 <form action="/add-category-db" method="get">
                     <!-- New Category Name: -->
                     <label for="category-name">Enter the category's name:</label>
-                    <input type="text" name="category-name" placeholder="Name" class="category-name">
+                    <input type="text" name="category-name" placeholder="Name" class="category-name" minlength="3" maxlength="30" required="required">
 
                     <input type="submit" value="Add Category" class="submit">
                 </form>

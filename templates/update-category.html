@@ -53,7 +53,7 @@
                             <form action="/update-category-to-db" method="get">
 
                                 <label for="category_name">Enter new name:</label> <br>
-                                <input type="text" name="category_name" placeholder="New name"> <br>
+                                <input type="text" name="category_name" placeholder="New name" minlength="3" maxlength="30" required="required"> <br>
 
                                 <input type="submit" value="Update Category" class="submit">
 
